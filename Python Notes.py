@@ -402,6 +402,8 @@ Lists are unordered, mutable and indexed and they cannot contain duplicate keys
 '''
 '''Syntax
 dictionaryname={'name':'Hammy', 'Age':32}
+
+emptydict={} 
 '''
 # marks={'Hammy':32, 'James':21, 'list' :[1,2,3], 0:'Person'} #Where Hammy is key and 32 is the value thus Key:value pair
 # print(marks['Hammy']) #This will print the marks of Hammy
@@ -409,16 +411,131 @@ dictionaryname={'name':'Hammy', 'Age':32}
 # print(marks['list']) #Yes we can also put lists inside a dictionary
 
 """Dictionary Methods (Important)"""
-dictname={  "name": "Hammy",
-            "from": "Singapore",
-            "marks" : [92] }
+
+# dictname={  "name": "Hammy",
+#             "from": "Singapore",
+#             "marks" : [92] }
  
-print(dictname.items()) # Returns items of dictionary in the form of (key,value) tuples.
+# print(dictname.items()) # Returns items of dictionary in the form of (key,value) tuples.
 
-print(dictname.keys()) # Returns keys in the dictionary
+# print(dictname.keys()) # Returns keys in the dictionary
 
-dictname.update({"marks":94}) # Updates the orignal dictionary with supplied key-value pairs. key has to stay same but value can be changed
-print(dictname)
+# dictname.update({"marks":94}) # Updates the orignal dictionary with supplied key-value pairs. key has to stay same but value can be changed
+# dictname.update({"Age":21}) # We can also add key value pairs into the dictionary using the .update() function 
+# print(dictname)
 
-print(dictname.get("name")) # Returns the value of the specified keys (and value is returned eg. "Hammy" is returned here).
+# print(dictname.get("name")) # Returns the value of the specified keys (and value is returned eg. "Hammy" is returned here).
+
+# dictname.pop('name') #Pop method removes the given key with its value from the dictionary
+# print(dictname)
+
+"""Sets (Important)"""
+'''Set is a collection of non-repetetive well defined objects/elements (Yes these are the sets we studied in school)'''
+
+'''
+PROPERTIES OF SETS
+1. Sets are unordered => Element's order doesn't matter
+2. Sets are unindexed => Cannot access elements by index
+3. There is no way to change items in sets.
+4. Sets cannot contain duplicate values.
+'''
+'''Syntax 
+setvarname={1,2,3}
+We use emptyset=set() to make an empty set (read the note underneath this line) 
+NOTE:We DONT use setname={} to make an empty set because it creates an empty dictionary instead 
+'''
+
+# set1={1,5,2,5,74,2,"Hammy"} #5 and 2 is repeated here but in sets elements cannot be repeated
+# print(set1) # Output= {1,2,5,74}
+
+
+
+"""Methods of Sets (Important)"""
+
+# set1={1,5,2,74,2,"Hammy"}
+# set1.add(230) #This will add the given element into the set
+# print(set1)
+
+# set1.remove(1)  # Removes 1 from the set
+# print(set1)
+
+# set1.clear() #Removes everything from the set
+# print(set1) 
+
+'''Union and intersection in sets(Important)'''
+
+# set1 = {1, 2, 3}
+# set2 = {3, 4, 5}
+
+# # Union (combines all elements) 
+# unionset = set1.union(set2)
+# print(unionset)  # Output: {1, 2, 3, 4, 5}
+
+# # Intersection (elements common to both sets)
+# intersectionset = set1.intersection(set2)
+# print(intersectionset)  # Output: {3}
+
+"""Program to let a user print meanings of 3 words using dictionary"""
+
+# list1={'ephemeral':'Lasting for a short time',
+#        'serendipity':'The occurrence of events by chance in a happy or beneficial way',
+#        'quintessential':'Representing the most perfect or typical example of a quality or class'}
+
+# print(list1.keys())
+# chosen=input("Choose which word you want the meaning of:")
+# print(list1.get(chosen))
+
+"""Write a program to input 6 numbers from the user and display all the unique
+numbers (once) and then print their sum."""
+
+# set1=set() #Empty set
+# num=int(input("Enter Number:"))
+# set1.add(num)
+# num=int(input("Enter Number:"))
+# set1.add(num)
+# num=int(input("Enter Number:"))
+# set1.add(num)
+# num=int(input("Enter Number:"))
+# set1.add(num)
+# num=int(input("Enter Number:"))
+# set1.add(num)
+# num=int(input("Enter Number:"))
+# set1.add(num)
+# print(set1)
+# print(sum(set1))
+
+"""Program to check if integer and floating number are considered a single element in python"""
+
+# s=set()
+# s.add(20)
+# s.add(20.0)
+# s.add("20")
+# print(s)
+# print(len(s)) #output will be 2 This is because python interpreter wil consider 20 and 20.0 as equals thus being a same number there will be no repitition in sed
+
+"""Program to check the type of s={} and how to make a empty set"""
+
+# s={}
+# print(type(s))
+
+# set1=set()
+# print(type(set1))
+
+"""Create an empty dictionary. Allow 4 friends to enter their favorite language as value and use key as their names. Assume that the names are unique."""
+"""Also check what happens if two of the friends's names are same"""
+
+# dict1={}
+# n1=input("Enter your name: ")
+# l1=input("Enter your favourite language: ")
+# dict1.update({n1:l1})
+# n1=input("Enter your name: ")
+# l1=input("Enter your favourite language: ")
+# dict1.update({n1:l1})
+# n1=input("Enter your name: ")
+# l1=input("Enter your favourite language: ")
+# dict1.update({n1:l1})
+# n1=input("Enter your name: ")
+# l1=input("Enter your favourite language: ")
+# dict1.update({n1:l1}) #if two languages are same then python will keep them seperate because key is what differenciates the pairs
+# print(dict1) #If two names are entered same then python will update they key of that friend and use the one who entered the language afterwards
 
