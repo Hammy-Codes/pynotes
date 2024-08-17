@@ -539,3 +539,261 @@ numbers (once) and then print their sum."""
 # dict1.update({n1:l1}) #if two languages are same then python will keep them seperate because key is what differenciates the pairs
 # print(dict1) #If two names are entered same then python will update they key of that friend and use the one who entered the language afterwards
 
+"""Chapter 6, Conditional Expressions"""
+'''They allow you to write concise code that performs different actions based on whether a condition is True or False.'''
+'''if else elif (else if)'''
+"""if the number is divisible by 2 then the number is even, if not (else) it is odd
+if n/2:
+    print("Number is even") where the tabular space(important) is called Indentation 
+else:                       to get out of the body of the conditional statement you remove the indentation
+    print("Number is odd")                          
+"""
+
+"""Basic program for Age using conditional statements (if elif else ladder)"""
+"""In python conditions we use conditional operators and logical operators such as >= <= == etc as discussed before"""
+
+# age=int(input("Enter your age: "))
+
+# if(age>=18): #If age is greater than OR equal to 18
+#     print("You are eligible to drive.")
+# elif(age<18): #if age is below 18
+#     print("You are not eligible to drive.")
+# elif(age<0): #if age is below 0 
+#     print("Age cannot be negative.")
+# else: #This else is only executed if all the other if and elif conditions fail
+#     print("You entered an invalid value.") #Checks for error if the value is something other than a number\
+#     #Anything written within the indent is included in the block of else statement
+
+# print("End of program.") #Written outside block of else statement
+
+"""Write a program to find the greatest of 3 numbers entered by the user"""
+
+# a=int(input("Enter first number:"))
+# b=int(input("Enter second number:"))
+# c=int(input("Enter third number:"))
+
+# if(a>=b and a>=c): #Here logical operator and is used which checks if both conditions are true then the whole statement is true
+#     print(a,"is the greatest number.")
+# elif(b>=a and b>=c): # if b is greater than a and b is greater than c print b is greatest number
+#     print(b,"is the greatest number.")
+# elif(c>=b and c>=a): #We can also use more than one logical operator inside one conditional statement e.g if(a>b and a>c and a>d):
+#     print(c,"is the greatest number.") 
+# else:
+#     print("Invalid number.")
+
+"""Write a program to find out whether a student has passed or failed if it requires a
+total of 40% and at least 33% in each subject to pass. Assume 3 subjects and
+take marks as an input from the user out of total marks 100."""
+
+# marks1=int(input("Enter marks in first subject:"))
+# marks2=int(input("Enter marks in second subject:"))
+# marks3=int(input("Enter marks in third subject:"))
+
+# totalmarks=marks1+marks2+marks3
+# totalpercentage=(100*(totalmarks))/300
+
+# if(totalpercentage>=40 and marks1>33 and marks2>33 and marks3>33):
+#     print("You have passed,",totalpercentage)
+# else:
+#     print("You have failed.", totalpercentage)
+
+"""A spam comment is defined as a text containing following keywords:
+"Make a lot of money", "buy now", "subscribe this", "click this". 
+Write a program to detect these spams."""
+
+'''In Python the 'in' operator is used to check for membership and containment. it works in:
+lists, Tuples, Sets: Check if an element is a member of the collection.
+Dictionaries: Check if a key is present in the dictionary.
+Strings: Check if a substring is present within the string.
+Ranges: Check if a value is within a specified range.'''
+
+# spam1="Make a lot of money"
+# spam2="buy now"
+# spam3="subscribe this"
+# spam4="click this"
+
+# message=input("Enter your comment:")
+# if((spam1 in message) or (spam2 in message) or (spam3 in message) or (spam4 in message)): #We will use the find in function to check if the following are IN the message
+#     print("This comment is spam.")
+# else:
+#     print("Your comment was not spam.")
+
+"""Write a program to find whether a given username contains less than 5 characters or not."""
+
+# username=input("Enter your username:")
+# lengthofuser=len(username)
+# if (lengthofuser<5):
+#     print("Your username is smaller than 5 characters.")
+# elif (lengthofuser>=5):
+#     print("Your username is greater than 5 characters.")
+
+"""Write a program which finds out whether a given name is present in a list or not."""
+
+# namelist=['hammy','joe','chuck']
+# checkname=input("Enter a name to check if it is present in the list or not:")
+# if (checkname in namelist):
+#     print("This name is in the list.",namelist)
+# else:
+#     print("This name is not in the list.")
+
+"""Write a program to calculate grades of a student."""
+
+# marks = int(input("Enter your marks: "))
+
+# if(marks<=100 and marks>=90):
+#     grade = "A+"
+# elif(marks<90 and marks>=80):
+#     grade = "B"
+# elif(marks<80 and marks>=70):
+#     grade = "C"
+# elif(marks<70 and marks>=60):
+#     grade = "D"
+# elif(marks<60 and marks>=50):
+#     grade = "E"
+# elif(marks<50):
+#     grade = "F"
+
+# print("Your grade is:", grade)
+
+"""Write a program to find if the name hammy is present in a message or not."""
+
+# message=input("Enter your message: ")
+# if("hammy" in message): #in function can check strings, lists, tuples, sets etc 
+#     print("Name hammy is present in the message.")
+# else:
+#     print("Name Hammy is not present in the message.")
+
+
+"""Chapter 7, Loops in python"""
+"""In Python, loops are used to execute a block of code repeatedly. They help automate repetitive tasks and can make your code more efficient and readable.
+There are two primary types of loops in Python which are 'for' and 'while' """
+
+'''The for loop is used to iterate over a sequence (such as a list, tuple, dictionary, set, or string) or other iterable objects.'''
+
+'''Syntax: 
+for variable in sequence:
+    Code block to execute  '''
+
+'''The while loop repeatedly executes a block of code as long as a specified condition is true.
+in while loop we have to somehow make it so the condition thats given becomes false after some time or else the loop will execute infinitly'''
+
+'''Syntax: 
+while (condition):
+    Code block to execute
+'''
+
+'''Write a program to print to print 50 numbers using a while loop'''
+
+# i=1 #Starts i from 1
+# while (i<=50): #this will keep checking the condition again and again till its true 
+#     print(i) 
+#     i=i+1 #This will add 1 each time the loop is executed. it can also be written as i+=1
+
+'''Write a program to print the content of a list using while loop'''
+
+# list1=['hammy','john','joe']
+# i=0 #i is zero because index of list starts from 0
+# while (i<len(list1)): #This will check the length of the list and since range index is smaller than length of list it will run the code
+#     print(list1[i])  
+#     i+=1
+
+'''For loop'''
+'''#for 'variable' in 'range'/(sequence):'''
+'''The range function in Python is used to generate a sequence of numbers, which is commonly used in loops, particularly for loops.
+Syntax(start, stop, step size)''' 
+
+# for i in range(0,4):  #this will print i from 0 to range-1 (3) and it will automatically add 1 each time due to the range already being given 
+#     print(i) 
+
+# list1=[1,51,12,561,5]
+# for num in list1: #Where num is a variable that gets assigned the values from the list and then gets output
+#     print(num)
+
+'''For loop can also be used with a else, which is executed when the loop gets exausted'''
+
+# l=[1,5,4,5]
+# for i in l:
+#     print(i)
+# else:
+#     print("Loop ended")
+
+'''Break and Continue statements'''
+
+# for i in range (100): #by default range starts from 0 (0,100)
+#     if(i == 34): #if the value of i becomes 34 the loop with break
+#         break # exits the loop
+#     print(i)
+    
+# for i in range(0,30):
+#     if(i==10 or i==20):
+#         continue  #This skips the iteration if values are 10 and 20 
+#     print(i)
+
+"""Write a program to print the multiplication table of a given number using for loop"""
+
+# num=int(input("Enter the number you want the table for: "))
+# till=int(input("Enter the times you want to multiply it: "))
+# for i in range(1,till+1):
+#     print(num,"x",i,"=",num*i)
+
+"""Write a program to greet all the people whose names stored in a list 'l' and start with S.
+list1=["Hammy" "Sammy" "Sunny" "joe"]"""
+
+# list1=["Hammy","Sammy", "Sunny", "joe"]
+# for names in list1:
+#     if (names[0] == "S"): #Checks if the index 0  of the name is an S 
+#         print("Greetings ",names)
+
+"""Write a program to print the multiplication table of a given number using while loop"""
+
+# num=int(input("Enter the number you want the table for: "))
+# till=int(input("Enter the times you want to multiply it: "))
+
+# i=1
+# while(i<=till): 
+#     print(num,"x",i,"=",num*i)
+#     i=i+1
+
+"""Write a program to find whether a given number is prime or composite."""
+
+# num=int(input("Enter the number you want to check if its prime or not: "))
+
+# for i in range(2,num): #if divisor is found then number is not prime
+#     if num%i==0: 
+#         print("Number is composite") 
+#         break
+# else: 
+#     print("Number is prime")
+
+"""Write a program to find the sum of first n natural numbers using while loop."""
+
+# num=int(input("Enter the number: "))
+# i=1 #This is for the loop
+# sum=0 #sum is initialized with zero and stored in memory
+# while(i<=num): #i will go from 1 to n
+#     sum=sum+i 
+#     i=i+1 #Number is incremented everytime loop re iterates thus increasing it by 1 and adding it to the sum of numbers
+# print(sum)
+
+"""Write a program to calculate the factorial of a given number using for loop."""
+
+# num=int(input("Enter the number to calculate its factorial: "))
+# fact=1
+# for i in range(1,num+1):  #n=1 because range goes till n-1
+#     fact=fact*i #value of factorial * i (1,2,3,4,5..) will be assigned to factorial and printed at the end
+# print(fact)
+
+"""Write a program to print the following star pattern.
+  * 
+ **
+*****
+ """
+'''end parameter tells the print function what to print at the end. by default it is \\n new line char'''
+
+# n = int(input("Enter the number: "))
+# for i in range (1, n+1) : #range from 1 to (n-1)+1 (3) in this case 
+#     print(" "*(n-i), end="") #This will print spaces e.g 3-1 so 2 spaces at first and loops 
+#     print("*"*(2*i-1),end="") #This will print the stars in odd number form e.g 2*1-1 = 1,  2*2-1 = 3 and so on
+#     print("") #This will add a new line by default because end parameter is not used here
+
+
