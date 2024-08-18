@@ -785,7 +785,7 @@ list1=["Hammy" "Sammy" "Sunny" "joe"]"""
 
 """Write a program to print the following star pattern.
   * 
- **
+ ***
 *****
  """
 '''end parameter tells the print function what to print at the end. by default it is \\n new line char'''
@@ -796,4 +796,43 @@ list1=["Hammy" "Sammy" "Sunny" "joe"]"""
 #     print("*"*(2*i-1),end="") #This will print the stars in odd number form e.g 2*1-1 = 1,  2*2-1 = 3 and so on
 #     print("") #This will add a new line by default because end parameter is not used here
 
+"""Write a program to print the following star pattern.
+* 
+**
+***
+****
+*****
+ """
 
+# n=int(input("Enter the number of lines: "))
+# for i in range(1,n+1):
+#     print("*"*i, end="")
+#     print("")
+
+"""Write a program to print the following star pattern.
+***
+* *
+***
+"""
+
+# n=int(input("Enter the number of lines: "))
+# for i in range(1,n+1):
+
+#     if (i==1 or i==n): #if its the first line or the last line then print the stars
+#         print("*"*n,end="")
+#     else: #if its not the first or last line
+#         print("*",end="") #print 1 star on left side
+
+#         print(" "*(n-2),end="") #print spaces in the middle
+
+#         print("*",end="") #print spaces on the right side
+
+#     print("")
+
+# """Write a program to print multiplication table of a given number using for loops in reversed order."""
+
+# num=int(input("Enter the number you want the table for: "))
+
+# for i in range(1,11):
+#     print(f"{num} x {11-i} =",num*(11-i)) #Here we used something called an f string where you put f before the string and add variables directly using {} curly brackets
+    
