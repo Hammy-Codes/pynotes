@@ -829,10 +829,173 @@ list1=["Hammy" "Sammy" "Sunny" "joe"]"""
 
 #     print("")
 
-# """Write a program to print multiplication table of a given number using for loops in reversed order."""
+"""Write a program to print multiplication table of a given number using for loops in reversed order."""
 
 # num=int(input("Enter the number you want the table for: "))
 
 # for i in range(1,11):
-#     print(f"{num} x {11-i} =",num*(11-i)) #Here we used something called an f string where you put f before the string and add variables directly using {} curly brackets
+#     print(f"{num} x {11-i} =",num*(11-i)) #Here we used something called an f string where you put f before the string and add values directly using {} curly brackets
     
+
+"""Chapter 8, Functions and recursions (Important)"""
+'''In Python, a function is a reusable block of code that performs a specific task.
+Functions help organize and manage code more efficiently by allowing you to encapsulate logic into discrete units.'''
+
+"""
+Advantages of using functions:
+Code Reusability: Write code once and reuse it multiple times.
+Improved Readability: Organize code into clear, descriptive units.
+Easier Debugging and Maintenance: Fix issues in one place without affecting other code.
+Encapsulation: Isolate code into manageable, independent units.
+Modularity: Build complex programs from smaller, self-contained pieces.
+Reduced Complexity: Simplify complex tasks by breaking them into smaller functions.
+
+"""
+
+"""Syntax
+def functionname():    #This is function definition
+    print("works")     #This is the body of the function within indentation 
+
+functionname()          #This is the function call which is outside the indents. this will execute the function
+"""
+
+"""Program to calculate average of 3 numbers using functions"""
+
+# def average(): #function definition
+
+#     a=int(input("Enter 1st Number:")) #function block
+#     b=int(input("Enter 2nd Number:"))
+#     c=int(input("Enter 3rd Number:"))
+#     avg=(a+b+c)/3
+#     print(avg) #end of function block
+
+# average() #Function is called here
+# average() #Function can be called as many times as the user wants, this is why function is resuable
+
+"""Write a program to greet a user with "Good day" using functions."""
+
+# def greeting():
+#     name=input("Enter your name: ")
+#     print("Greetings",name)
+# greeting()
+
+"""Types of functions in python."""
+'''
+Built in functions (Already present in python) 
+e.g print(), len(), range() are all built in functions
+
+
+User defined functions (Defined by the user)
+any function defined by the user is a user defined function for example
+avg(), prod(), formula() etc
+'''
+
+"""Write a program to greet a user with "Good day" using functions with passing parameters."""
+
+# def greeting(name): #Here name is a parameter(a value that fucntion can accept) in the function definition
+#     print("Greetings "+ name) #This concatenates the strings
+    
+# username=input("Enter your name: ")
+# greeting(username) #Function is called here and the username parameter is sent to the function as name. 
+
+"""Same program with default value"""
+
+# def greeting(name,ending="Welcome"): #Here ending is a default value which will be printed if there is no input in function call
+#     print("Greetings ",name) 
+#     print(ending)
+    
+# username="hammy"
+# greeting(username) #Here i didnt give any value so by default it prints welcome 
+
+# username="Joe"
+# greeting(username,"Thanks") #Here i game a parameter as thanks so it gets printed instead of welcome which is the default value
+
+
+"""Recursion (important)"""
+'''Recursion is a programming technique where a function calls itself to solve a problem.'''
+
+'''
+factorial (0) = 1
+factorial (1) = 1
+factorial (2) = 2 X 1
+factorial (3) = 3 X 2 X 1
+factorial (4) = 4 X 3 X 2 X 1
+factorial (5) = 5 X 4 X 3 X 2 X 1
+factorial(n) = n X n-1 X..... 3 X 2 X 1
+factorial(n) = n * factorial(n-1)
+'''
+
+# def factorial(n):
+#     if(n==1 or n==0): #Rule of factorial and this is also the base condition
+#         return 1 #Return function is similar to print and it returns the value to the function call
+#     return n * factorial(n-1) #This function will be executed till the base condition is met 
+# #e.g It will first multiply 5 with factorial of (n-1=4) 4 and then 5x4 with factorial of 3 and it will go till its 5x4x3x2x factorial (1) which is base condition
+# n = int(input("Enter a number: "))
+# print(f"The factorial of {n} is: {factorial(n)}")
+
+"""Write a program using functions to find greatest of three numbers using functions."""
+
+# def greatest(a,b,c):
+#     if(a>b and a>c):
+#         print(f"{a} is the greatest number.")
+#     elif(b>a and b>c):
+#         print(f"{b} is the greatest number.")
+#     elif(c>b and c>a):
+#         print(f"{c} is the greatest number.")
+# d=int(input("Enter 1st number:"))
+# e=int(input("Enter 2nd number:"))
+# f=int(input("Enter 3rd number:"))
+
+# greatest(d,e,f)
+
+"""Write a python program using function to convert Celsius to Fahrenheit."""
+
+# def c_to_f(celsius):
+#     celsius=((9/5)*celsius) +32
+#     return celsius #the calculated value will return out of the block to function call
+
+# c=int(input("Enter Degrees in celsius: "))
+# f=c_to_f(c) #function call
+# print(f"Farenheit={round(f,2)}°f",) #round(value,decimal places) rounds of the value
+
+'''Write a recursive function to calculate the sum of first n natural numbers.'''
+
+# def sum(n):
+#     if(n==1):
+#         return 1
+#     return sum(n-1) + n
+
+# num=int(input("Enter the number: "))
+# print(sum(num))
+
+'''Write a python function to print first n lines of the following pattern:
+***
+**
+*
+'''
+
+# def stars(n):
+#     if(n==0):
+#         return
+#     print("*"*n)
+#     stars(n-1) #Recursive function
+# c=int(input("Enter the amount of lines: "))
+# stars(c)
+
+"""Write a python function which converts inches to cms."""
+
+# def inch_to_cms(inch):
+#     return inch * 2.54
+
+# n = int(input("Enter value in inches: "))
+
+# print(f"The corresponding value in cms is {inch_to_cms(n)}")
+
+"""Write a python function to print multiplication table of a given number."""
+
+# def multiply(n): #the parameter c is now stored in n 
+#     for i in range(1, 11):
+#         print(f"{n} X {i} = {n*i}")
+
+# c=int(input("Enter the number you want the table for: ")) #variable is c outside the block
+# multiply(c) #variable is used as a parameter in function call and sent to the function
