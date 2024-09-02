@@ -999,3 +999,423 @@ factorial(n) = n * factorial(n-1)
 
 # c=int(input("Enter the number you want the table for: ")) #variable is c outside the block
 # multiply(c) #variable is used as a parameter in function call and sent to the function
+
+# 5:34:56
+
+"""Rock paper scissors in python"""
+'''in this we will use the random module in python, which will automatically choose its choice from specified choices
+Syntax:
+random.choice(list) for any alphabets from a list
+random.randint(0,10) for random integers between the specified range including the first and last number (inclusive)
+'''
+
+# import random
+
+# choices=['r','p','s']
+# computerchoice=random.choice(choices)
+# userchoice=input("r: rock \np: paper\ns: scissors\nEnter your choice: ")
+
+# if (userchoice==computerchoice):
+#     print(f"Computer chose {computerchoice} and user chose {userchoice} so it was a DRAW!!")
+# elif(userchoice=='r' and computerchoice=='p'):
+#     print(f"Computer chose paper and user chose rock so computer WINS!")
+# elif(userchoice=='r' and computerchoice=='s'):
+#     print(f"Computer chose scissors and user chose rock so User WINS!")
+# elif(userchoice=='p' and computerchoice=='r'):
+#     print(f"Computer chose rock and user chose paper so User WINS!")
+# elif(userchoice=='p' and computerchoice=='s'):
+#     print(f"Computer chose scissors and user chose paper so computer WINS!")
+# elif(userchoice=='s' and computerchoice=='r'):
+#     print(f"Computer chose rock and user chose scissors so computer WINS!")
+# elif(userchoice=='s' and computerchoice=='p'):
+#     print(f"Computer chose paper and user chose scissors so User WINS!")
+
+"""Chapter 9, File Input/Output"""
+'''
+The random-access memory RAM is volatile, and all its contents are lost once a program terminates 
+In order to persist the data forever, we use files.
+A file is data stored in a storage device. 
+A python program can talk to the file by reading
+content from it and writing content to it.'''
+
+
+"""There are two types of files in python
+text files (.txt, .c etc)
+binary files (.dat, .jpg etc)
+"""
+
+"""python has built in functions for file handling"""
+
+"""f=open("filename.txt", "r") it takes the filename and the mode of opening, by default it is r (read)"""
+
+"""Modes of opening a file
+r - reading
+w - writing 
+a - appending at the end
++ - open for updating
+rb - read in binary mode
+rt - read in text mode
+"""
+
+"""Reading a file"""
+
+# filename=open("hammy.txt") #opens a file in the background, NOTE: you have to create a file first in the same dir
+# data = filename.read() #reads the data in the file and assigns it to the data variable
+# print(data) #prints the data on the output screen
+# filename.close() #closes the file after printing the data
+
+"""writing to a file:"""
+
+# string="Hammy likes to code"    #string that we will put in the file
+# f=open("hammycodes.txt", "w") #opens or creates a file for us in write mode
+# f.write(string) #This write function will write the string into the file
+# f.close() 
+
+"""More file functions"""
+
+'''lines=f.readlines()'''
+
+# f=open("hammy.txt")
+# lines=f.readlines() #reads the lines in the files and stores it in lines
+# print(lines,type(lines)) #prints the lines in form of a list and outputs the type aswell
+# f.close()
+
+"""line1=f.readline()"""
+
+# f=open("hammy.txt")
+# line=f.readline() #reads a the first single line
+# while(line != ""): #while the line is not empty run this loop
+#     print(line) 
+#     line = f.readline #reads the second line
+# f.close()
+
+"""with function automatically closes a file"""
+
+# f=open("hammy.txt")
+# print(f.read())
+# f.close()
+# #same can be wrtten shortly as
+
+# f=open("hammy.txt")
+
+# with open("hammy.txt") as f:
+#     f.read()
+
+"""You dont have to close the file explicitly"""
+
+"""Write a program to read the text from a given file 'poems.txt' and find out whether it
+contains the word 'twinkle'."""
+'''First we create a file called poems.txt and put some sentences in it or a poem'''
+
+# file=open("poems.txt")
+# content=file.read()
+# if("twinkle" in content):
+#     print("The word twinkle is present in the content.")
+# else:
+#     print("The word twinkle is not present in the file.")
+# file.close()
+
+"""The game() function in a program lets a user play a game and returns the score as an integer. 
+You need to read a file 'highscore.txt' which is either blank or contains the previous highscore. 
+You need to write a program to update the highscore whenever thegame function breaks the highscore."""
+
+
+# import random #importing the random module
+# def game(): #game function
+#     print("You are playing the game.") 
+
+#     score=random.randint(1,100) # will choose a random integer from 1-100
+
+#     with open("highscore.txt","r") as file: #with function opens the text file in read mode where as (file) is a new filevariable
+#         oldcontent = file.read() #reads the file and stores the content into the variable
+
+#         if (oldcontent != ""): #if the file is NOT empty 
+#             oldcontent=int(oldcontent) # then the string form in text file will be converted into interger form 
+#         else:
+#             oldcontent=0 #if the file is empty then the default score is considered 0
+
+#     print(f"Your score is {score}") # This will print your new score
+#     if(score>oldcontent): # if your new score is greater than old highscore 
+
+#         with open("highscore.txt","w") as file: #then the file is opened in write form 
+#             file.write(str(score)) # and the new score is written into the file as a string because text files can take string forms
+
+#     return score
+# game() #function call
+
+"""Write a program to generate multiplication tables from 2 to 20 and write it to the different files. 
+Place these files in a folder for a 13 - year old."""
+"""first we create a folder called tables 
+we can use foldername/text.txt function to put the generated tables into the folder"""
+
+def generated(n): #recieves numbers from 1 to 20
+
+    table="" #creates a string called table because files take strings 
+
+    for i in range(1,11): #cycles from numbers from 1 to 10 
+        table+= f"{n} x {i} = {n*i}\n" #f string that assigns the table to the string called table
+
+    with open(f"tables/table_{n}.txt", "w") as f: #opens the folder tables/ and puts table.txt files into the table 
+        f.write(table) #writes the table generated into the files
+
+for i in range (1,21): #this will cycle different numbers so different files will be created
+    generated(i) #calls the functions and gives numbers from 1 to 20 to the function
+
+"""A file contains a word "cooked" multiple times. You need to write a program which
+replace this word with ###### by updating the same file."""
+
+"""first we make a file called file.txt e.g"""
+
+# word="cooked" #stores the word in a string
+
+# with open("file.txt","r") as f: #opens file in read mode
+#     content=f.read() #reads the content in the file
+
+# newcontent=content.replace(word,"######") #new content will have the word cooked replaced with ###### 
+
+# with open("file.txt","w") as f: #opens the file in write mode 
+#     f.write(newcontent) #writes the new content into the file
+
+"""Programm in which we have to censor a list of words"""
+
+# words=["cooked", "chef", "bad"] #words to be censored
+
+# with open("file.txt","r") as f: #opens file in read mode
+#     content=f.read() #reads the content in the file
+
+# for word in words: #loop to check all the words in the list one by one
+#     content=content.replace(word,"#" * len(word)) #checks the words and replaces the words with the length of the characters
+
+# with open("file.txt","w") as f: #opens the file in write mode 
+#     f.write(content) #writes the new content into the file
+
+"""Write a program to mine a log file and find out whether it contains 'python'."""
+
+"first create a file named log.txt and write anything in it and include python"
+
+# with open("log.txt") as f:
+#     content = f.read()
+# if ("python" in content):
+#     print("Yes the word python is present in this file")
+# else:
+#     print("The word Python is not present in this file")
+
+"""Write a program to find out the line number where "python" is present from the above question"""
+
+
+# with open("log.txt") as f: #opens the log file
+#     lines = f.readlines() #reads all the lines
+
+# lineno=1 #linno is 1 by default and will increment so loop runs again
+
+# for line in lines: #reads single line in lines
+#     if("python" in line): 
+#         print(f"Python is present in the line {lineno}") #if python is present then it will print the current line number and if not it skips 
+#         break
+#     lineno+=1 #increments by 1 for each line
+
+# else:
+#     print("Python is not present in the file") #exits the for loop if python isnt present in the file
+
+"""Write a program to make a copy of a text file "this.txt" """
+
+"""first create a file called this.txt and put anything in it"""
+
+# with open("this.txt") as f:
+#     contents = f.read()
+# newtext = contents
+
+# with open ("thiscopy.txt", "w") as f:
+#     f.write(newtext)
+
+"""Write a program to find out whether a file is identical & matches the content of
+another file.""" 
+
+# with open("this.txt") as f:
+#     contents1 = f.read()
+
+# with open ("thiscopy.txt") as f:
+#     contents2 = f.read()
+
+# if(contents1==contents2):
+#     print("Yes the contents of the files are identical")
+# else:
+#     print("The contents of the the files are not identical")
+
+"""Write a program to wipe out the content of a file using python."""
+
+# with open("this.txt","w") as f:
+#     f.write("")
+
+"""Write a python program to rename a file to "renamed_by_python.txt" without using the os module"""
+
+# with open("thiscopy.txt") as f:
+#     contents = f.read()
+# with open("renamed_by_python", "w") as f:
+#     f.write(contents)
+
+
+"""Chapter 10, Object Oriented Programming"""
+
+'''Solving a problem by creating object is one of the most popular approaches in programming.
+This is called object-oriented programming.
+This concept focuses on using reusable code (DRY Principle).
+'''
+
+'''To understand this we can use an example of an empty form (class) which has place hodlers or empty blanks and a filled form (object) which has instances
+there can be many empty forms, but once they are filled they are unique 
+'''
+
+"""very basic class and object task"""
+
+# class Employee:
+#     language="python" #this is a class attribute
+#     salary=100000
+
+
+# hammy = Employee() 
+# hammy.name = "Hammy" #this is an object/instance attribute
+# print(hammy.name,hammy.salary,hammy.language)
+
+# john = Employee()
+# john.name="Jhonny" #here name is object/instance attribute(outside class) and salary and language are class attributes
+# print(john.name,john.salary,john.language)
+
+#Here name is instance attribute and salary and language are class attributes as they directly belong to the class
+
+# NOTE: Instance attributes, take preference over class attributes during assignment & retrieval.
+
+# class Employee:
+#     language="python" #the class attribute will be checked later
+#     salary=100000
+
+
+# hammy = Employee() 
+# hammy.language = "Java script" #the object attribute will be checked first
+# print(hammy.salary,hammy.language)
+
+"""How to make a method (self parameter)"""
+
+# class Employee:
+
+#     language = "Python" # This is a class attribute
+#     salary = 1200000
+    
+#     def getInfo(self): #function which will revieve the parameter and will print the object attributes
+#         print(f"The language is {self.language}. The salary is {self.salary}")
+
+# hammy = Employee() #employee is hammy
+# Employee.getInfo (hammy) #getinfo function is called and the name is sent to the function as a self parameter
+
+"""__INIT__() Constructor (important)"""
+
+
+"""
+__init__() is a special method which is first run as soon as the object is created.
+_init_ () method is also known as constructor.
+It takes self-argument and can also take further arguments.
+"""
+
+'''Dunder method is a method that is automatically called and it starts with __ underscores'''
+
+"""Create a class called Employee to model an employee with attributes such as name, position, and salary."""
+
+# # Define a class named Employee
+# class Employee:
+
+#     # Constructor method to initialize the Employee object (this will be run first)
+
+#     #we use self method, to differentiate between instance variable and local variable
+
+#     def __init__(self, name, position, salary):
+#         self.name = name        # Attribute for the employee's name
+#         self.position = position  # Attribute for the employee's position
+#         self.salary = salary    # Attribute for the employee's salary
+
+#     # Method to display employee details
+#     def display_details(self):
+#         print(f"Name: {self.name}")
+#         print(f"Position: {self.position}")
+#         print(f"Monthly Salary: ${self.salary:.2f}")
+
+#     # Method to calculate the annual salary
+#     def annual_salary(self):
+#         return self.salary * 12
+
+# # Create an instance (object) of the Employee class
+# employee1 = Employee(name="Hammy", position="Software Engineer", salary=7500)
+
+# # Call methods on the Employee object
+# employee1.display_details() #calls the details functions and prints the attributes
+
+# print(f"Annual Salary: ${employee1.annual_salary():.2f}") #calls the annual salary function and prints the annual salary
+
+
+"""Create a Class "Programmer" for storing information of few programmers
+working at Microsoft."""
+
+# class Programmer:
+#     company="Microsoft" #class attribute
+
+#     def __init__(self,name,salary,language): #method
+#         self.name= name #self method allows methods to access and modify instance attributes 
+#         self.salary=salary
+#         self.language=language
+    
+#     def details(self):
+#         print(f"Name: {self.name}")
+#         print(f"Salary: {self.salary}")
+#         print(f"Language: {self.language}")
+#         print(f"Company: {self.company}")
+#         print("")
+
+# programmer1 = Programmer(name="Hammy",salary=4200,language="Python")
+# programmer2 = Programmer(name="Joe",salary=2200,language="Java")
+
+# programmer1.details()
+# programmer2.details()
+
+
+"""Write a class "calculator" capable of finding square, cube and square root of a
+number. Also add a static method to greet the user."""
+
+# class Calculator:
+#     def __init__(self,number):
+#         self.number=number
+#     @staticmethod
+#     def hello():
+#         print("Hello there")
+#     def square(self):
+#         print(f"Square of the number={self.number*self.number}")
+#     def cube(self):
+#         print(f"Cube of the number={self.number*self.number*self.number}")
+#     def sqrt(self):
+#         print(f"Square root of the number={self.number**1/2}")
+    
+        
+# a=Calculator(number=4)
+# a.hello()
+# a.square() #method/function call
+# a.cube()
+# a.sqrt()
+
+"""Write a class Train which has methods to book a ticket, get status (no of seats)
+and get fare information of train running under Abc Railways."""
+
+# from random import randint
+
+# class Train:
+#     def __init__(self,trainNo):
+#         self.trainNo=trainNo
+#     def bookTicket(self,fro,to):
+#         print(f"Ticket of train {self.trainNo} is Booked from {fro} to {to}.")
+#     def getStatus(self):
+#         print(f"The train {self.trainNo} is running ")
+#     def getfare(self,fro,to):
+#         print(f"The Fare of the train {self.trainNo} is {randint(200,1500)} from {fro} to {to}.")
+
+# trainnumber=48210
+# train=Train(trainnumber)
+# train.bookTicket("Point A","Point B")
+# train.getfare("Point A","Point B")
+# train.getStatus()
