@@ -1419,3 +1419,111 @@ and get fare information of train running under Abc Railways."""
 # train.bookTicket("Point A","Point B")
 # train.getfare("Point A","Point B")
 # train.getStatus()
+
+"""Chapter 11, Inheritance in OOP"""
+
+"""Inheritance is a way of creating a new class from an existing class."""
+'''
+Syntax:
+class parentclass:
+    #code
+    .... Base Class
+
+class childclass(parentclass):
+    #code
+    .... Derived Class
+'''
+'''we can use attributes and methods of parent class in child class object, 
+we can also overwrite or add new attributes and methods in child class'''
+
+'''
+There are Three types if inheritance 
+Single inheritance
+Multiple Inheritance 
+Multilevel Inheritance
+'''
+
+"""Single Inheritance"""
+'''1 Base class and 1 derived class'''
+
+# class Employee: #parent class 
+#     company = "ITC" #one attribute
+#     def info(self): #one method 
+#         print(f" The name of the Employee is {self.name}) and the salary is {self.salary})")
+
+# class Programmer(Employee): #child class
+
+#     company = "ITC Infotech" #modified attribute from parent class
+#     def showLanguage (self): #new method added into child class
+#         print(f"The name is {self.name}) and he is good with {self.language}) language")
+
+# a=Employee()
+# b=Programmer()
+# print(a.company,b.company) #This will output the company attribute from the parent class and then from child class
+
+"""Multiple Inheritance"""
+'''1 Child Class inherits from Multiple parent Classes'''
+
+# class Employee: #parent class 1
+#     company = "ITC" 
+#     name="Hammy"
+#     salary=13533
+#     def info(self): 
+#         print(f"The name of the Employee is {self.name}, He works at the company {self.company} and his salary is {self.salary}")
+
+# class Coder: #parent class 2
+#     language = "Python"
+#     def printLanguages(self):
+#         print(f"Your language is: {self. language}")
+
+# class Programmer (Employee,Coder): #child class that inherits properties from both parents 
+#     company = "ITC Infotech"
+#     def showLanguage(self):
+#         print(f"The new company name is {self.company} and he is good with {self.language} language") #here name and language are taken from parents 
+
+# a = Employee()
+# b = Programmer ()
+
+# b.info()
+# b.printLanguages()
+# b.showLanguage ()
+
+"""MultiLevel Inheritance"""
+'''When a child class becomes parent of another child class'''
+
+# class Employee:
+#     а = 1
+# class Programmer (Employee) :
+#     b = 2
+# class Manager (Programmer) :
+#     с = 3
+
+# o = Employee()
+
+# print(o.a) # Prints the a attribute
+
+# # print(o.b) # Shows an error as there is no b attribute in Employee class
+
+# 0 = Programmer()
+# print(o.a, o.b)
+
+# o = Manager()
+# print(o.a, o.b)
+
+"""Operator overloading in python"""
+
+'''Operators in Python can be overloaded using dunder methods.
+These methods are called when a given operator is used on the objects.
+Operators in Python can be overloaded using the following methods
+p1+p2 __add__(p2)
+'''
+
+# class Number:
+#     def __init__(self,n):
+#         self.n=n
+#     def __add__(self,num): #everything in python is a class including all the datatypes e.g int, list etc
+#         return self.n + num.n
+    
+# n=Number(1)
+# m=Number(2)
+# print(m+n) 
